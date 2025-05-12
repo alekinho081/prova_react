@@ -6,14 +6,14 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [imagens, setImagens] = useState()
-
+    let i = 0
 
     useEffect(() => {
         const carregaPets = async () => {
             try{
                 const imgs = await pegarImagens()
                 const dados = await pegarDogs()
-                console.log(imgs)
+                console.log(imgs.message)
                 setImagens(imgs.message)
                 setPets(dados.slice(0, 3) || [])
                 setLoading(false)
@@ -38,7 +38,7 @@ return (
 
         <ul>
             {pets.map((e) => (
-                <li ket={e.id}><p style={{fontSize:'40px'}}>{e.name}</p> <img style={{width:'300px', height:'200px'}} src={imagens.message}></img></li>
+                <li key={e.id}><p style={{fontSize:'40px'}}>{e.name}</p> <img style={{width:'300px', height:'200px'}} src={imagens[i++]}></img></li>
             ))} 
         </ul>
 
