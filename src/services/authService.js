@@ -10,6 +10,7 @@ export const loginRequest = async (email, password) => {
         const users = response.data
 
         const user = users.find ((user) => user.email === email && user.password === password)
+        if(user) localStorage.setItem('nome', user.name)
         return user ? {success: true, user} : {success: false};
 
 
