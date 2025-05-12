@@ -13,12 +13,8 @@ Este projeto é um **Painel Web (Dashboard)** desenvolvido em **React** para a c
 
 ✅ **Listagem de Pets**  
 - Visualização dos pets cadastrados.  
-- Exibição de informações básicas (nome, raça, idade, etc.).  
+- Exibição de informações básicas.
 - Imagens reais de cachorros.  
-
-✅ **Dashboard Interativo**  
-- Layout responsivo e intuitivo.  
-- Filtros e busca para facilitar a navegação.  
 
 ---
 
