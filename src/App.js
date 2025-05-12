@@ -4,26 +4,34 @@ import Layout from './Layout/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-
+import PrivateRoute from './componentes/PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-    
-    <Routes>
+      <AuthProvider>
+        <BrowserRouter>
 
-      <Route path='/' element={<Layout />} >
+          <Routes>
 
-      <Route index element={ <Home /> } />
-      <Route path='/login' element={ <Login /> } />
-      <Route path='/dashboard' element={ <Dashboard /> } />
+            <Route path='/' element={<Layout />} >
 
-      </Route>
+              <Route path='/dashboard' element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              } />
 
-    </Routes>
+              <Route path='/login' element={<Login />} />
+              <Route index  path='/' element={<Home />} />
 
-    </BrowserRouter>
+            </Route>
+
+          </Routes>
+
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
